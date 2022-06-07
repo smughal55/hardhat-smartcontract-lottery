@@ -63,7 +63,7 @@ const { developmentChains, networkConfig } = require("../../helper-hardhat-confi
               it("returns false if people haven't sent any ETH", async function () {
                   await network.provider.send("evm_increaseTime", [interval.toNumber() + 1])
                   await network.provider.send("evm_mine", [])
-                  //callStatic - simulate transaction
+                  //callStatic - https://docs.ethers.io/v5/api/contract/contract/#contract-callStatic
                   const { upKeepNeeded } = await raffle.callStatic.checkUpkeep([])
                   assert(!upKeepNeeded)
               })
